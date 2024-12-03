@@ -1,0 +1,11 @@
+.app-footer {
+    width: 100%; /* Faz com que o rodapé ocupe toda a largura */
+    height: 30px; /* Altura do rodapé */
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    font-size: 16px;
+    display: flex; /* Centraliza o conteúdo */
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}

@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box; /* Adiciona box-sizing para todos os elementos */
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;   
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.login-container {
+    width: 300px;
+    padding: 30px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 16px;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    bottom: 50px;
+    flex-grow: 0; /* Garante que o container não cresça mais que o necessário */
+    flex-shrink: 0; /* Impede que o container encolha */
+    align-self: center; /* Centraliza o login-container horizontalmente */
+}
+
+.login-container .logo {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 100px;
+    padding-bottom: 40px;
+}
+
+.login-container .form-container {
+    width: 100%; /* Garante que o form ocupe toda a largura disponível */
+}
+
+.login-container .form-group {
+    width: 100%; /* Garante que a div do input ocupe toda a largura */
+ //   margin-bottom: 15px;
+}
+
+.login-container input {
+    width: 100%; /* Faz os inputs ocuparem toda a largura do container */
+    padding: 15px; /* Aumenta o tamanho do input */
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Aumenta o espaço entre o input e o botão */
+    font-size: 12px; /* Aumenta o tamanho da fonte */
+}
+
+.login-container .button-group {
+    width: 100%; /* Garante que os botões ocupem toda a largura */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.login-container .btn-entrar,
+.login-container .btn-recuperar {
+    width: 100%; /* Faz os botões ocuparem toda a largura do container */
+    padding: 15px; /* Aumenta o tamanho do botão */
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px; /* Aumenta o tamanho da fonte do botão */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Garante que o texto no botão esteja centralizado */
+}
+
+.login-container .btn-entrar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.login-container .btn-recuperar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.login-container .criar-conta {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #4CAF50;
+    text-decoration: none;
+}
