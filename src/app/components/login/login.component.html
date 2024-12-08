@@ -8,12 +8,12 @@
 </head>
 
 <body>
-    <app-header></app-header>
     <div class="login-container">
         <img src="assets/logo.png" alt="Logo da Aplicação" class="logo">
         <form class="form-container" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="Digite seu email" required>
+                <input type="email" id="email" name="email" [(ngModel)]="email"
+                    placeholder="Digite seu username ou email" required>
             </div>
             <div class="form-group">
                 <input type="password" id="password" name="password" [(ngModel)]="password"
@@ -26,7 +26,6 @@
             <a href="/criar-conta" class="criar-conta">Não tem uma conta? Crie a sua agora!</a>
         </form>
     </div>
-    <app-footer></app-footer>
 </body>
 
 </html>

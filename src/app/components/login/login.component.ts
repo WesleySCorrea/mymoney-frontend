@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { AuthService } from '../../services/auto.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [FormsModule, HeaderComponent, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -14,11 +11,34 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  // Função chamada quando o formulário é enviado
+  constructor(private authService: AuthService, private router: Router) {}
+
   onSubmit(): void {
     console.log('Email:', this.email);
     console.log('Senha:', this.password);
-    // Aqui você pode adicionar a lógica de autenticação ou enviar os dados para o servidor
+
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
+        console.log('Login bem sucedido, bem vindo ' + response.username);
+
+        this.authService.storeTokens(response.accessToken, response.refreshToken)
+
+        this.router.navigate(['/'])
+      },
+      error: (error) => {
+        console.error('Erro ao fazer login:', error);
+        
+        if (error.status === 401) {
+          alert('Usuário ou senha inválidos. Por favor, tente novamente. 🙄');
+        } else if (error.status === 403) {
+          alert('Você não tem permissão para acessar esta página. 😡');
+        } else if (error.status === 0) {
+          alert('Não foi possível acessar o servidor. Verifique sua conexão. 😢');
+        } else {
+          alert('Um erro inesperado aconteceu 😢. Por favor, tente novamente mais tarde. 🤔');
+        }
+      }
+    });
   }
 
   // Função chamada quando o botão "Recuperar Senha" é clicado
