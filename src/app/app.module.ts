@@ -8,6 +8,8 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
+import { BalanceChartComponent } from './components/balance-chart/balance-chart.component';
+import { Chart, registerables } from 'chart.js';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent    
+    FooterComponent,
+    BalanceChartComponent
   ],
   imports: [
     BrowserModule,
@@ -26,4 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    Chart.register(...registerables);
+  }
+}

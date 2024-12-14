@@ -29,6 +29,18 @@
     }
 
     .container {
-        width: 100%; /* Faz o quadrado ocupar toda a largura disponível */
+        width: 300px;
+        //width: 100%; /* Faz o quadrado ocupar toda a largura disponível */
+    }
+}
+
+@media (max-width: 380px) {
+    .row-container {
+        justify-content: center; /* Centraliza os quadrados na tela */
+    }
+
+    .container {
+        width: 100%; /* O quadrado se ajusta completamente à largura da tela */
+        max-width: 300px;
     }
 }

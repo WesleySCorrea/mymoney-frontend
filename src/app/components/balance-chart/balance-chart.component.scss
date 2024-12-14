@@ -1,0 +1,13 @@
+.chart-container {
+  width: 100%; /* Ajusta a largura do container */
+  height: 100%; /* Garante que ocupe toda a altura do container */
+  display: flex; /* Permite centralizar o canvas */
+  justify-content: center;
+  align-items: center;
+}
+
+//canvas {
+//  width: 100% !important; /* Garante que o canvas preencha o container */
+//  height: 200px !important; /* Define uma altura mínima */
+//  max-height: 200px; /* Limita a altura máxima */
+//}
