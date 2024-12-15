@@ -15,7 +15,7 @@ export class ChartConfigService {
         datasets: [
           {
             data: [data.totalIncomes, data.totalExpenses],
-            backgroundColor: ['#4caf50', '#f44336'], // Cores para as barras
+            backgroundColor: ['#4caf50', '#f44336'],
             borderColor: ['#388e3c', '#d32f2f'],
             borderWidth: 1,
             barThickness: 50
@@ -30,40 +30,59 @@ export class ChartConfigService {
             display: false,
             labels: {
               font: {
-                family: 'Arial Black', // Fonte para as legendas
+                family: 'Arial Black',
                 weight: 'normal'
               }
             }
           },
-          tooltip: { enabled: true }
+          tooltip: {
+            enabled: true,
+            callbacks: {
+              label: function (context) {
+                const value = context.raw as number;
+                const formattedValue = value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                return `R$ ${formattedValue}`;
+              }
+            }
+          }
         },
         layout: {
           padding: {
-            top: 0,  // Ajuste o espaço superior do gráfico
-            bottom: 20, // Ajuste o espaço inferior do gráfico
-            left: 20,   // Ajuste o espaço à esquerda
-            right: 20   // Ajuste o espaço à direita
+            top: 0,
+            bottom: 0,
+            left: 20,
+            right: 20
           }
         },
         scales: {
           x: {
-            grid: { display: false }, // Remove linhas de grade no eixo X
+            grid: { display: false },
             ticks: {
               font: {
-                family: 'Arial Black', // Fonte Arial Black para os valores no eixo Y
-                 weight: 'bold' 
-                } // Negrito no eixo X
-            }
+                family: 'Arial Black',
+                 weight: 'bold',
+                },
+                color: '#245426'
+              },
+            border: {
+              color: '#4CAF50 ',
+              width: 2
+            },
           },
           y: {
             beginAtZero: true,
             grid: { display: false },
             ticks: {
               font: {
-                family: 'Arial Black', // Fonte Arial Black para os valores no eixo Y
+                family: 'Arial Black',
                  weight: 'bold' 
-                } // Negrito no eixo Y
-            }
+                },
+                color: '#245426'
+            },
+            border: {
+              color: '#4CAF50',
+              width: 2
+            },
           },
         }
       }

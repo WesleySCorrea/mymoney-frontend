@@ -1,6 +1,6 @@
-<div>
+<h1>Balanço por Períordo</h1>
+<div class="selection">
     <div class="select-container">
-        <label for="monthSelect">Mês:</label>
         <select id="monthSelect">
             <option value="janeiro">Janeiro</option>
             <option value="fevereiro">Fevereiro</option>
@@ -18,7 +18,6 @@
     </div>
 
     <div class="select-container">
-        <label for="yearSelect">Ano:</label>
         <select id="yearSelect">
             <option value="2024">2024</option>
             <option value="2025">2025</option>
@@ -31,4 +30,9 @@
 </div>
 <div class="chart-container">
     <canvas id="balanceChart"></canvas>
+</div>
+<div>
+    <h2 *ngIf="balanceData">
+        Balanço médio: R$ {{ balanceData.balance | number:'1.2-2' }}
+    </h2>
 </div>
