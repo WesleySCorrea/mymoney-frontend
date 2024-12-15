@@ -5,10 +5,11 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { BalanceChartComponent } from './components/balance-chart/balance-chart.component';
+import { CategoryChartComponent } from "./components/category-chart/category-chart.component";
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { BalanceChartComponent } from './components/balance-chart/balance-chart.component';
 import { Chart, registerables } from 'chart.js';
 import { registerLocaleData } from '@angular/common';
 
@@ -22,7 +23,8 @@ import localePt from '@angular/common/locales/pt';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    BalanceChartComponent
+    BalanceChartComponent,
+    CategoryChartComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import localePt from '@angular/common/locales/pt';
     HttpClientModule
 ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' }  // Definindo o locale para pt-BR
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],    
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BalanceResponse } from '../../models/home/balanceResponse';
@@ -12,12 +12,15 @@ export class HomeService {
 
   constructor(private http: HttpClient) {}
 
-  getBalanceData(): Observable<BalanceResponse> {
+  getBalanceData(month: number, year: number): Observable<BalanceResponse> {
     const accessToken = localStorage.getItem('accessToken');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${accessToken}`
-    });
+    const options  = {
+    headers: new HttpHeaders({Authorization: `Bearer ${accessToken}`}),
+    params: new HttpParams()
+    .set('month', month)
+    .set('year', year)
+  };
   
-    return this.http.get<BalanceResponse>(`${this.apiUrl}/launch/balance`, { headers });
+    return this.http.get<BalanceResponse>(`${this.apiUrl}/launch/balance`, options);
   }
 }

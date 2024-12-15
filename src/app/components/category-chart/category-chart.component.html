@@ -1,4 +1,4 @@
-<h1>Balanço por Período</h1>
+<h1>Valores por Categorias</h1>
 <div class="selection">
     <div class="select-container">
         <select id="monthSelect" [(ngModel)]="monthSelect" (change)="onDateChange()">
@@ -15,11 +15,8 @@
         </select>
     </div>
 </div>
-<div class="chart-container">
-    <canvas id="balanceChart"></canvas>
-</div>
 <div>
-    <h2 *ngIf="balanceData">
-        Balanço médio: R$ {{ balanceData.balance | number:'1.2-2' }}
+    <h2>
+        teste
     </h2>
 </div>
